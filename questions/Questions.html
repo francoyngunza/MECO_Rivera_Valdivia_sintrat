@@ -1,0 +1,145 @@
+{{ block title }}
+    Preguntas
+{{ endblock }}
+
+{{ block content }}
+<script>
+    var preguntaActual = 1;
+    var totalPreguntas = 21
+
+    function mostrarSeccion(seccion) {
+        var secciones = document.getElementsByClassName('seccion');
+        for (var i = 0; i < secciones.length; i++) {
+            secciones[i].style.display = 'none';
+        }
+        document.getElementById(seccion).style.display = 'block';
+        document.getElementById('progreso').textContent = 'Pregunta ' + preguntaActual + ' de ' + totalPreguntas;
+    }
+
+    function avanzarPregunta() {
+        preguntaActual++;
+        var siguienteSeccion = 'seccion' + preguntaActual;
+        mostrarSeccion(siguienteSeccion);
+    }
+
+    function validarPregunta(pregunta) {
+        console.log(document.getElementsByName(pregunta)[0]);
+        //var valor = document.getElementById('id_' + pregunta).value;
+        var valor = document.querySelector('input[name="' + pregunta + '"]').value;
+        console.log(valor)
+        if (valor.trim() === '') {
+            alert('Debes responder la pregunta.');
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<div id = "progreso" > Pregunta 1 de 21 </div>
+
+    <div id = "seccion1" class= "seccion">
+        {{ formfield 'email' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('email')) avanzarPregunta('seccion2')">
+    </div>
+
+    <div id = "seccion2" class= "seccion" style= "display: none;">
+        {{ formfield 'sexo' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('sexo')) avanzarPregunta('seccion3')">
+    </div>
+
+    <div id = "seccion3" class= "seccion" style= "display: none;">
+        {{ formfield 'edad' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('edad')) avanzarPregunta('seccion4')">
+    </div>
+
+    <div id = "seccion4" class= "seccion" style= "display: none;">
+        {{ formfield 'ultimo_ciclo' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('ultimo_ciclo')) avanzarPregunta('seccion5')">
+    </div>
+
+    <div id = "seccion5" class= "seccion" style= "display: none;">
+        {{ formfield 'distrito_residencia' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('distrito_residencia')) avanzarPregunta('seccion6')">
+    </div>
+
+    <div id = "seccion6" class= "seccion" style= "display: none;">
+        {{ formfield 'carrera' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('carrera')) avanzarPregunta('seccion7')">
+    </div>
+
+    <div id = "seccion7" class= "seccion" style= "display: none;">
+        {{ formfield 'escala_pagos' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('escala_pagos')) avanzarPregunta('seccion8')">
+    </div>
+
+    <div id = "seccion8" class= "seccion" style= "display: none;">
+        {{ formfield 'lugar_nacimiento' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('lugar_nacimiento')) avanzarPregunta('seccion9')">
+    </div>
+
+    <div id = "seccion9" class= "seccion" style= "display: none;">
+        {{ formfield 'autodeterminacion_etnica' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('autodeterminacion_etnica')) avanzarPregunta('seccion10')">
+    </div>
+
+    <div id = "seccion10" class= "seccion" style= "display: none;">
+        {{ formfield 'colegio_procedencia' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('colegio_procedencia')) avanzarPregunta('seccion11')">
+    </div>
+
+    <div id = "seccion11" class= "seccion" style= "display: none;">
+        {{ formfield 'sector_trabajo' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('sector_trabajo')) avanzarPregunta('seccion12')">
+    </div>
+
+    <div id = "seccion12" class= "seccion" style= "display: none;">
+        {{ formfield 'num_hermanos' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('num_hermanos')) avanzarPregunta('seccion13')">
+    </div>
+
+    <div id = "seccion13" class= "seccion" style= "display: none;">
+        {{ formfield 'padre_vivo' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('padre_vivo')) avanzarPregunta('seccion14')">
+    </div>
+
+    <div id = "seccion14" class= "seccion" style= "display: none;">
+        {{ formfield 'madre_viva' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('madre_viva')) avanzarPregunta('seccion15')">
+    </div>
+
+    <div id = "seccion15" class= "seccion" style= "display: none;">
+        {{ formfield 'grado_padre' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('grado_padre')) avanzarPregunta('seccion16')">
+    </div>
+
+    <div id = "seccion16" class= "seccion" style= "display: none;">
+        {{ formfield 'grado_madre' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('grado_madre')) avanzarPregunta('seccion17')">
+    </div>
+
+    <div id = "seccion17" class= "seccion" style= "display: none;">
+        {{ formfield 'seguro_salud' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('seguro_salud')) avanzarPregunta('seccion18')">
+    </div>
+
+    <div id = "seccion18" class= "seccion" style= "display: none;">
+        {{ formfield 'tipo_seguro_salud' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('tipo_seguro_salud')) avanzarPregunta('seccion19')">
+    </div>
+
+    <div id = "seccion19" class= "seccion" style= "display: none;">
+        {{ formfield 'padres_separados' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('padres_separados')) avanzarPregunta('seccion20')">
+    </div>
+
+    <div id = "seccion20" class= "seccion" style= "display: none;">
+        {{ formfield 'religion' }}
+        <input type= "button" value = "Siguiente" onclick = "if (validarPregunta('religion')) avanzarPregunta('seccion21')">
+    </div>
+
+    <div id = "seccion21" class= "seccion" style= "display: none;">
+        {{ formfield 'asistencia_religiosa' }}
+        <input type= "submit" value = "Enviar">
+    </div>
+
+{{ endblock }}

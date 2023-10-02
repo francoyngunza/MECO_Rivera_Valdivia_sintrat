@@ -1,0 +1,39 @@
+{{ block title }}
+
+  <h1>Ronda {{ ronda }}, Periodo {{ player.group.turno }}</h1>
+
+{{ endblock }}
+
+{{ block content }}
+
+  {{ if espera < 5 }}
+  <h2>Órgano B dejó de funcionar: Te encuentras en la LISTA DE ESPERA de donación de órganos</h2>  
+    <ul>
+    <li>Total de donaciones disponibles: {{ player.group.donaciones }}</li>  
+    <li>Organo A: {{ if player.organo_a_funcional }} Funcional {{ else }} Dejó de funcionar {{ endif }}</li>
+    <li>Organo B: {{ if player.organo_b_funcional }} Funcional {{ else }} Dejó de funcionar {{ endif }}</li>
+    <li>Turnos en lista de espera: {{player.turnos_en_espera}}</li>
+    </ul>
+    <p>Por favor, espera un momento mientras los demás jugadores toman sus decisiones.</p>
+  {{ else }}
+  <h2>Lo siento, has muerto: 
+    {{ if not player.organo_a_funcional }} Muerte instantánea por fallo en el órgano A. 
+    {{ elif player.donacion_previa }} Ya no puede recibir más donaciones. 
+    {{ elif player.turnos_en_espera }} No recibió donación a tiempo. 
+    {{ endif }}
+  </h2>
+
+  <h3>Estos son los resultados:</h3>  
+  <ul>
+  <li>Órgano A: {{ if player.organo_a_funcional }} Funcional {{ else }}Dejó de funcionar{{ endif }}</li>
+  <li>Órgano B: {{ if player.organo_b_funcional }} Funcional {{ else }}Dejó de funcionar{{ endif }}</li>
+  <li>Turnos en lista de espera: {{ player.turnos_en_espera }}</li>
+  <li>Recibió donación: {{ if player.donacion_previa }} Sí {{ else }} No {{ endif }}</li>
+  <li>El pago obtenido en esta ronda es: {{ player.pago }} dólares experimentales</li>
+  
+  </ul>
+  {{ endif }}
+
+  {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,25 @@
+{{ block title }}
+
+  <h1>Ronda {{ ronda }}, Periodo {{ player.group.turno }}</h1>
+
+{{ endblock }}
+
+{{ block content }}
+
+{{ if player.caso == 'A'}}
+<h2>Lo siento, tu órgano A falló: Has muerto. Espera un momento mientras se inicia la siguiente ronda.</h2> 
+{{ elif player.caso == 'B'}}
+<h2>Órgano B dejó de funcionar: Recibiste donación a tiempo!</h2> 
+{{ else }}
+<h2>¡Tus órganos se mantienen funcionales! Ganas +3 dólares experimentales</h2> 
+{{ endif }}
+
+  <ul>
+  <li>Condición de DONANTE: {{ if player.es_donante }} Sí {{ else }} No {{ endif }}</li>
+  <li>Órgano A: {{ if player.organo_a_funcional }} Funcional {{ else }} Dejó de funcionar {{ endif }}</li>
+  <li>Órgano B: {{ if player.organo_b_funcional }} Funcional {{ else }} Dejó de funcionar {{ endif }}</li>
+
+  </ul>
+  {{ next_button }}
+
+{{ endblock }}

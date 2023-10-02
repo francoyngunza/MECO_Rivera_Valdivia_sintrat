@@ -1,0 +1,38 @@
+{{ block title }}
+
+  <h1>INICIO DE RONDA</h1>
+  
+{{ endblock }}
+
+{{ block content }}
+
+  <img id="image" src="{{ static image_path }}" style = "display:none;" />
+
+  <script>
+    document.getElementById("image").style.display = "block";
+  </script>
+<br>
+
+  {{ if costo_cambio == 0 }}
+      <h2 id="question">¿Deseas cambiar tu estado de NO DONANTE a DONANTE? <br> 
+        <span style="font-size: 20px;">El cambio no tiene costo alguno, es GRATIS!</span>
+    </h2>
+  {{ else }}
+      <h2 id="question">¿Deseas cambiar tu estado de NO DONANTE a DONANTE? <br> 
+          <span style="font-size: 18px;">El cambio tiene un costo de {{ costo_cambio }} dólares experimentales</span>
+      </h2>
+  {{ endif }}
+     
+  <button id = "yesButton" name = "es_donante" value = "True" style = "display:none;"> Sí </button>
+  <button id = "noButton" name = "es_donante" value = "False" style = "display:none;"> No </button>
+
+  <script>
+    setTimeout(function() {
+      document.getElementById("image").style.display = "block";
+      document.getElementById("question").style.display = "block";
+      document.getElementById("yesButton").style.display = "inline-block";
+      document.getElementById("noButton").style.display = "inline-block";
+    }, 5000);
+  </script>
+
+{{ endblock }}

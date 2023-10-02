@@ -1,0 +1,62 @@
+# Algoritmo
+   1. Definir las constantes:
+      - NÚMERO_DE_RONDAS = 20
+      - COSTO_RONDAS_1_10 = 0.75
+      - COSTO_RONDAS_11_20 = 0
+
+   2. Inicializar la variable "pago_total" con S/ 5.00 (participación)
+
+   3. Mostrar el mensaje de donacion (altruismo) a los jugadores
+   4. Para cada ronda desde 1 hasta NÚMERO_DE_RONDAS, hacer lo siguiente:
+      5. Inicializar la variable "todos_mueren" como falso
+      6. Inicializar la variable "periodos" y "donaciones" en 0
+
+      7. Mientras "todos_mueren" sea falso, hacer lo siguiente:
+         8. Incrementar "periodos" en 1
+
+         9. Para cada jugador, hacer lo siguiente:
+            10. Generar un número aleatorio para determinar el escenario del periodo actual para el jugador actual
+            11. Si el jugador no ha elegido ser donante:
+               - Preguntar al jugador si desea cambiar su estado de "no donante" a "donante"
+               - Si la ronda está entre 1 y 10 (ambos inclusive):
+                  - Restar COSTO_RONDAS_1_10 a "pago_total" si el jugador cambia su estado a "donante"
+               - Si la ronda está entre 11 y 20 (ambos inclusive):
+                  - Restar COSTO_RONDAS_11_20 a "pago_total" si el jugador cambia su estado a "donante"
+
+            12. Según el escenario generado para el jugador actual:
+
+               a) Con probabilidad del 10%:
+                  - Mostrar mensaje de que el órgano A ha dejado de funcionar y el jugador "muere"
+                  - Si el jugador es donante, sumar 1 al número de órganos B en "donaciones"
+                     - Finalizar la participación del jugador en el periodo actual
+               b) Con probabilidad del 20%:
+                  - Si el jugador ha recibido donación previamente, mostrar mensaje de que un órgano B ha vuelto a fallar y ya no es apto para donación y el jugador "muere"
+                  - Si el jugador no ha recibido ninguna donación previa
+                     - Mostrar mensaje de que un órgano B ha fallado y el jugador entra en lista de espera
+                     - Si han pasado 5 periodos desde que entró en la lista de espera:
+                        - Mostrar mensaje de que el jugador no ha recibido una donación y su participación en el periodo actual termina
+                        - Finalizar la participación del jugador en el periodo actual
+                     - Si hay órganos B en "donaciones":
+                        - Mostrar mensaje de que el jugador ha recibido una donación y su participación continua
+                        - Restar 1 al número de órganos B en "donaciones"
+                  - En caso contrario, continuar esperando en la lista de espera
+               c) Con probabilidad del 70%:
+                  - Mostrar mensaje de que ambos tipos de órganos siguen funcionales y el jugador puede continuar participando en el siguiente periodo
+                  - Sumar S/ 3.00 a "pago_total"
+
+         13. Verificar si todos los jugadores han "muerto" en el periodo actual
+            - Si todos los jugadores han "muerto", establecer "todos_mueren" como verdadero
+            - En caso contrario, continuar al siguiente periodo
+
+      14. Mostrar el pago obtenido en la ronda actual
+
+   15. Generar un número aleatorio para seleccionar una de las 20 rondas para el pago
+   16. Mostrar el pago obtenido en la ronda seleccionada como resultado final del juego
+
+
+# Documentación
+   https://otree.readthedocs.io/en/latest/
+
+# Demos
+   https://otree-snippets.herokuapp.com/SessionStartLinks/7bol4py5
+   https://otree-snippets.herokuapp.com/SessionStartLinks/0cyrn126

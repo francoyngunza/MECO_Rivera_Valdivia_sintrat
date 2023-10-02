@@ -1,0 +1,171 @@
+/** fullscreen body **/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.otree-body,
+.otree-form {
+    height: 100%
+}
+
+.otree-body>h2,
+.otree-body>br,
+form#liveform {
+    display: none;
+}
+
+._otree-content {
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.otree-timer {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+}
+
+/** page sections **/
+
+header, footer, main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+header {
+    justify-content: start;
+}
+
+footer {
+    justify-content: end;
+}
+
+header, footer {
+    flex: 1 1 50%;
+    width: 100%;
+}
+
+main {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+/* fullscreen overlay */
+
+.fullscreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/** rows and columns **/
+
+.f-row, .f-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.f-row {
+    flex-flow: row nowrap;
+}
+
+.f-col {
+    flex-flow: column nowrap;
+}
+
+.f-spacer {
+    flex: 1 1 100%;
+}
+
+/** fixed sizes **/
+
+.h-1 {
+    height: 1rem;
+}
+
+.h-2 {
+    height: 2rem;
+}
+
+.h-3 {
+    height: 3rem;
+}
+
+.h-4 {
+    height: 4rem;
+}
+
+.h-5 {
+    height: 5rem;
+}
+
+.h-10 {
+    height: 10rem;
+}
+
+.h-15 {
+    height: 15rem;
+}
+
+.w-1 {
+    width: 1rem;
+}
+
+.w-2 {
+    width: 2rem;
+}
+
+.w-3 {
+    width: 3rem;
+}
+
+.w-4 {
+    width: 4rem;
+}
+
+.w-5 {
+    width: 5rem;
+}
+
+.w-6 {
+    width: 6rem;
+}
+
+.w-7 {
+    width: 7rem;
+}
+
+.w-8 {
+    width: 8rem;
+}
+
+.w-9 {
+    width: 9rem;
+}
+
+.w-10 {
+    width: 10rem;
+}
+
+.w-15 {
+    width: 15rem;
+}
+

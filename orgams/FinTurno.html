@@ -1,0 +1,36 @@
+{{ extends 'otree/WaitPage.html' }}
+
+{{ block title }}
+
+  FIN DE LA RONDA
+
+{{ endblock }}
+
+{{ block content }}
+
+<h3>Estos son los resultados:</h3>  
+<ul>
+  {{ if player.caso == 'A'}}
+  <h2>Lo siento, tu órgano A falló: Has muerto</h2> 
+  {{ elif player.caso == 'B'}}
+  <h2>Organo B dejó de funcionar. Causa muerte: No recibió donación a tiempo</h2> 
+  {{ else }}
+  <h2>¡Tus órganos se mantienen funcionales!</h2> 
+  {{ endif }}
+<li>Órgano A: {{ if player.organo_a_funcional }} Funcional {{ else }}Dejó de funcionar{{ endif }}</li>
+<li>Órgano B: {{ if player.organo_b_funcional }} Funcional {{ else }}Dejó de funcionar{{ endif }}</li>
+<li>Turnos en lista de espera: {{ player.turnos_en_espera }}</li>
+<li>Recibió donación: {{ if player.donacion_previa }} Sí {{ else }} No {{ endif }}</li>
+<li>El pago obtenido en esta ronda es: {{ player.pago }} dólares experimentales</li>
+
+<li>Causa muerte: 
+  {{ if not player.organo_a_funcional }} Muerte instantánea por fallo en el órgano A
+  {{ elif player.donacion_previa }} Ya no puede recibir más donaciones
+  {{ elif player.turnos_en_espera }} No recibió donación a tiempo
+  {{ endif }}
+</li>
+</ul>
+
+<p><b>Por favor, espera un momento mientras se inicia la siguiente ronda.</b></p>
+
+{{ endblock }}

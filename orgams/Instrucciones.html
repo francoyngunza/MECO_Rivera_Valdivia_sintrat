@@ -1,0 +1,48 @@
+{{ block title }}PASEMOS AL JUEGO ...{{ endblock }}
+{{ block content }}
+<p> A continuación te presentamos las reglas e instrucciones del presente juego:  </p>
+        <h5>REGLAS GENERALES</h5>
+        <ul style="list-style-type: square;">
+        <li> El experimento podría durar 1 hora y 45 min aproximadamente, dependiendo de la dinámica. 
+        <li> No será necesario usar cámara o micrófono.</li>
+        <li> Todas las respuestas e información que proporciones serán anónimas.</li>    
+        <li> El pago final que recibirás será la suma de tu monto por participación (<i>8 soles</i>) más un <i>monto adicional</i> que dependerá de las decisiones que tomes durante el juego.</li>
+        <li> Si te retiras antes de finalizar el juego no recibirás pago alguno.</li>
+        <li> Si ocurre algún error, actualizar la página inmediatamente. Si el error persiste y no te comunicas con nosotros a la prontitud, no tendrás derecho a la compensación económica.</li>
+        <li> Cualquier consulta o error, enviar un correo a e2lab@up.edu.pe o comunicarse al Whatsapp +51 985 730 063</li> 
+        </ul>
+
+        <h5>INSTRUCCIONES</h5>
+        <ul style="list-style-type: square;">
+        <li> En este juego simularemos un entorno donde las personas tienen la oportunidad de salvar vidas al donar sus órganos cuando fallecen, permitiendo que otros continúen participando. Cada participante puede encontrarse en el rol de donante de órganos, así como en el de requerir una donación para vivir.</li> 
+        <li> Así, existe una LISTA DE ESPERA con los participantes que requieran un órgano. <b>Las donaciones se hacen efectivas cuando un jugador que es donante fallece, lo que brinda a los demás la oportunidad de seguir participando en futuros períodos y aumentar sus ganancias.</b> </li>
+        <li> En la sesión habrán otros participantes en tiempo real. <b>Las decisiones de cada participante tienen un impacto en los resultados de los demás</b>, por lo que en algunos casos será necesario <b>esperar a los demás participantes antes de proseguir con la dinámica.</b></li>
+        <li> El juego está compuesto por 16 <b>rondas</b>, las cuales a su vez están compuestas por una serie de <b>periodos</b>. A partir de la ronda 9, habrá cierto cambio en la dinámica.</li>
+        <li> En cada ronda se resetean los resultados y se empieza la dinámica de nuevo.</li>
+
+            <ul style="list-style-type: disc;">
+            <li> <u>Al inicio de cada ronda:</u></li>
+                <ul style="list-style-type: circle;">
+                <li> Cuentas con 2 tipos órganos (A y B) que funcionan con normalidad y estás registrado como NO DONANTE de órganos. </li>
+                <li> Se te preguntará si deseas cambiar tu estado a “DONANTE”, el cual puede tener un costo según se indique. </li>
+                </ul> 
+            <li><u>En cada periodo (dentro de cada ronda), te pueden suceder los siguientes 3 escenarios:</u></li>
+            <ol>
+            <li>Con probabilidad de 10%, el órgano A deja de funcionar y “mueres” en ese instante. En ese sentido, dejas de participar en la ronda. </li>
+            <li>Con probabilidad de 20%, el órgano B falla, pero tienes la posibilidad de salvarte entrando a la lista de espera y recibir la donación de un órgano. Si después de 5 periodos no has recibido ninguna donación, mueres y culmina tu participación en la ronda.</li>
+            <li>Con probabilidad de 70%, ambos tipos de órganos permanecen funcionales y sigues participando.</li>
+            </ol>
+            </ul>
+        
+            
+        <li> En este juego hay pagos y costos que se realizan en "dólares experimentales", los cuales <i>determinarán tu compensación económica final en soles:</i></li>
+            <ul style="list-style-type: disc;">
+                <li> En cada periodo donde <b>ambos órganos se mantienen funcionales</b>, ganas <b>+3 dólares experimentales</b>.</li>
+                <li> Los periodos en los que te encuentres <b>en lista de espera no ganas nada.</b></li>
+                <li> Según la indicación, <b>cambiar tu estado a “DONANTE” puede</b> tener un costo de <b>-0.75 dólares experimentales.</b></li>
+                <li> De haber cambiado tu estado a “DONANTE”, cuando “mueras”, es decir, cuando culmine tu participación, pagas un costo de <b>-2.25 dólares experimentales cuando la donación del órgano se hace efectiva.</b> </li>
+            </ul>
+
+    {{ formfields }}<br> 
+    {{ next_button }}
+{{ endblock }}

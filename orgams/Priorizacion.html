@@ -1,0 +1,76 @@
+{{ block title }}
+  
+{{ endblock }}
+
+{{ block content }}
+
+    <h1>Las personas que se muestran abajo se encuentran en la lista de espera para la donación de un pulmón en Lima. Si tuvieses que decidir el orden de la lista de espera, ¿Cómo lo harías?</h1>
+
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        img {
+            max-width: 150px;
+            margin-right: 20px;
+        }
+    </style>
+
+    <p>Ordene las 4 opciones según su prioridad (1 con mayor prioridad, 4 con menor prioridad) </p>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const imageContainers = document.querySelectorAll(".image-container");
+            const shuffledContainers = Array.from(imageContainers)
+                .sort(() => Math.random() - 0.5);
+
+            const parent = imageContainers[0].parentNode;
+            shuffledContainers.forEach(container => parent.appendChild(container));
+        });
+        
+        function validarPregunta() {
+            var valor1 = document.getElementById('id_img1').value;
+            var valor2 = document.getElementById('id_img2').value;
+            var valor3 = document.getElementById('id_img3').value;
+            var valor4 = document.getElementById('id_img4').value;
+            // Crear un conjunto (Set) para almacenar los valores únicos
+            var valoresUnicos = new Set([valor1, valor2, valor3, valor4]);
+            console.log(valoresUnicos)
+
+            // Verificar si la longitud del conjunto es igual a 4 (sin repeticiones)
+            if (valoresUnicos.size !== 4) {
+                console.log("Hay valores repetidos");
+                alert('no se puede repetir los valores');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    
+    <div class="image-container">
+        <img id="image1" src="{% static 'images/img1.png' %}" style="display: flex;" />
+        {{ formfield 'img1' }}
+    </div>
+    <div class="image-container">
+        <img id="image2" src="{% static 'images/img2.png' %}" style="display: flex;" />
+        {{ formfield 'img2' }}
+    </div>
+    <div class="image-container">
+        <img id="image3" src="{% static 'images/img3.png' %}" style="display: flex;" />
+        {{ formfield 'img3' }}
+    </div>
+    <div class="image-container">
+        <img id="image4" src="{% static 'images/img4.png' %}" style="display: flex;" />
+        {{ formfield 'img4' }}
+    </div>
+
+    <input type="button" value="Enviar" onclick="if (validarPregunta()) { this.form.submit(); }">
+
+    <footer>Los datos y las imágenes son referenciales.</footer>
+    
+{{ endblock }}
+
